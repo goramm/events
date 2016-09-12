@@ -1,0 +1,36 @@
+ body {
+ 	display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}    
+
+#wrapper {
+	flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+#header {
+	color: $secondary-color;
+	background-color: $primary-color;
+	padding: 5px;
+	flex: 0 0 40px;
+}
+
+#content {
+	flex: 1 1 0%;
+}
+
+#sidebar {
+	color: $primary-color;
+	background-color: $secondary-color;
+	padding: 5px;
+}
+
+#footer {
+	color: $primary-color;
+	background-color: $secondary-color;
+	padding: 5px;
+	flex: 0 0 40px;
+}

@@ -1,0 +1,34 @@
+<div class="col-md-8">
+	<h1><%= pluralize(@events.size, 'Event') %></h1>
+
+	<%= link_to "Add new event", new_event_path, class: 'btn btn-secondary' %>
+
+	<% @events.each do |event| %>
+		<article class="row event">
+			<header class="col-md-4">
+				<h2><%= link_to(event.name, event) %></h2>
+				<%= image_for(event) %>
+				<h3><%= pluralize(event.capacity, 'spot') %></h3>
+			</header>
+			<div class="col-md-8">
+				<p>
+					<%= truncate(event.description, length: 35, separator: '') %>
+				</p>
+				<table class="table">
+					<tr>
+						<th>When:</th>
+						<td><%= event.starts_at %></td>
+					</tr>
+					<tr>
+						<th>Where:</th>
+						<td><%= event.location %></td>
+					</tr>
+					<tr>
+						<th>Price:</th>
+						<td><%=format_price(event)%></td>
+					</tr>
+				</table>
+			</div>
+		</article>
+	<% end %>
+</div>
