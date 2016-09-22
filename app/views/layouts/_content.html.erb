@@ -1,5 +1,10 @@
 <main id="content" class="row">
 	<div class="col-md-8">
+		<% if flash[:notice].present? %>
+			<div class="alert alert-success" role="alert">
+	      <%= flash[:notice]%>
+	    </div>
+    <% end %>
 		<%= yield %>
 	</div>
 	<%= render 'layouts/sidebar' %>
