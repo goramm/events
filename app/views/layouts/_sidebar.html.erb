@@ -1,3 +1,10 @@
 <aside class="col-md-4" id="sidebar">
-	Sidebar
+	<ul class="nav nav-pills nav-stacked">
+		<li class="nav-item">
+			<%= nav_link_to(:arrow_right, 'All events', events_path)%>
+		</li>
+		<li class="nav-item">
+			<%= nav_link_to(:plus_sign, 'Add new event', new_event_path)%>
+		</li>
+	</ul>
 </aside>

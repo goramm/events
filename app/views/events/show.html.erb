@@ -1,26 +1,28 @@
-<article>
-	<header>
+<article class="row event-show">
+	<header class="col-md-6">
 		<%= image_for(@event) %>
+	</header>
+	<div class="col-md-6">
 		<h2><%= @event.name %></h2>
 		<h3><%= pluralize(@event.capacity, 'spot') %></h3>
-	</header>
-	<p>
-		<%= @event.description %>
-	</p>
-	<table>
-		<tr>
-			<th>When:</th>
-			<td><%= @event.starts_at %></td>
-		</tr>
-		<tr>
-			<th>Where:</th>
-			<td><%= @event.location %></td>
-		</tr>
-		<tr>
-			<th>Price:</th>
-			<td><%=format_price(@event)%></td>
-		</tr>
-	</table>
+		<p>
+			<%= @event.description %>
+		</p>
+		<table class="table">
+			<tr>
+				<th>When:</th>
+				<td><%= @event.starts_at %></td>
+			</tr>
+			<tr>
+				<th>Where:</th>
+				<td><%= @event.location %></td>
+			</tr>
+			<tr>
+				<th>Price:</th>
+				<td><%=format_price(@event)%></td>
+			</tr>
+		</table>
+	</div>
 </article>
 
 <%= link_to 'All Events', events_path %>

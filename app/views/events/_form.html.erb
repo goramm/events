@@ -1,41 +1,55 @@
 <%= form_for(@event) do |f| %>
-	<p>
-		<%= f.label :name %><br />
-		<%= f.text_field :name, autofocus: true %>
-	</p>
+	
+	<% name_error =  @event.errors[:name].any? %>
+	<div class="<%= form_group(name_error) %>">
+		<%= f.label :name %>
+		<%= f.text_field :name, autofocus: true, class: form_control(name_error) %>
+		<%= show_error_text(name_error, @event.errors[:name].join(', ')) %>
+	</div>
 
-	<p>
-		<%= f.label :description %><br />
-		<%= f.text_area :description, cols: 40, rows: 7 %>
-	</p>
+	<% desc_error =  @event.errors[:description].any? %>
+	<div class="<%= form_group(desc_error) %>">
+		<%= f.label :description %>
+		<%= f.text_area :description, cols: 40, rows: 7, class: form_control(desc_error) %>
+		<%= show_error_text(desc_error, @event.errors[:description].join(', ')) %>
+	</div>
 
-	<p>
-		<%= f.label :location %><br />
-		<%= f.text_field :location %>
-	</p>
+	<% location_error =  @event.errors[:location].any? %>
+	<div class="<%= form_group(location_error) %>">
+		<%= f.label :location %>
+		<%= f.text_field :location, class: form_control(location_error) %>
+		<%= show_error_text(location_error, @event.errors[:location].join(', ')) %>
+	</div>
 
-	<p>
-		<%= f.label :price %><br />
-		<%= f.number_field :price, step: 'any' %>
-	</p>
+	<% price_error =  @event.errors[:price].any? %>
+	<div class="<%= form_group(price_error) %>">
+		<%= f.label :price %>
+		<%= f.number_field :price, step: 'any', class: form_control(price_error) %>
+		<%= show_error_text(price_error, @event.errors[:price].join(', ')) %>
+	</div>
 
-	<p>
-		<%= f.label :image_file_name %><br />
-		<%= f.text_field :image_file_name, size: 30, placeholder: 'GIF, JPG, or PNG file name' %>
-	</p>
+	<% image_error =  @event.errors[:image_file_name].any? %>
+	<div class="<%= form_group(image_error) %>">
+		<%= f.label :image_file_name %>
+		<%= f.text_field :image_file_name, size: 30, placeholder: 'GIF, JPG, or PNG file name', class: form_control(image_error) %>
+		<%= show_error_text(image_error, @event.errors[:image_file_name].join(', ')) %>
+	</div>
 
-	<p>
-		<%= f.label :capacity %><br />
-		<%= f.number_field :capacity %>
-	</p>
+	<% capacity_error =  @event.errors[:capacity].any? %>
+	<div class="<%= form_group(capacity_error) %>">
+		<%= f.label :capacity %>
+		<%= f.number_field :capacity, class: form_control(capacity_error) %>
+		<%= show_error_text(capacity_error, @event.errors[:capacity].join(', ')) %>
+	</div>
 
-	<p>
-		<%= f.label :starts_at %><br />
+	<div class="form-group">
+		<%= f.label :starts_at %>
 		<%= f.datetime_select :starts_at %>
-	</p>
+	</div>
 
-	<p>
-		<%= f.submit %> | 
-		<%= link_to 'Cancel', events_path %>
-	</p>
+	<div class="form-group">
+		<%= f.submit class: 'btn btn-primary' %>
+		<%= link_to 'Cancel', events_path, class: 'btn btn-secondary' %>
+	</div>
+
 <% end %>
